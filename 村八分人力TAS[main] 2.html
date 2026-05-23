@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+	<title>村八分人力TAS[main]</title>
+<style>
+*{margin:0;padding: 0;font-size: 14px;font-family : 'メイリオ',Meiryo,Osaka,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','ＭＳ Ｐゴシック','MS PGothic',sans-serif;}
+body{width: 100%;margin: 0;padding: 0;background-color: #f7f7f7;position: relative;}
+a{color: #666666;}
+a:hover{color: #CD0000;}
+h1{font-size: 21px;color: #666666;margin: 0px;padding: 0px;border-bottom: 1px solid #CCCCCC;}
+h2{font-size: 16px;color: #666666;margin: 5px;padding: 50px 0 0 0;border-bottom: 1px dotted #CCCCCC;}
+label{transition: all 0.2s;}
+#toggle{display: none;}
+#label_toggle{display: block;width: 100px;text-align: center;padding: 0;border: 2px solid #CD0000;background-color: #FFFFFF;color: #CD0000;border-radius: 15px;position: fixed;top: 10px;right: 10px;z-index: 1005;}
+#label_toggle:hover{background-color:#CD0000;color:#FFFFFF;}
+header{display: block;width: 0px;height: 100%;position: fixed;background-color: #FFFFFF;border-left: 1px solid #CCCCCC;z-index: 2;top: 0;right: 0;overflow-y: auto;overflow-x: hidden;transition: all 0.2s;padding: 50px 0 0 0;box-sizing: border-box;}
+#toggle:checked + header{width: 200px;}
+header label{display: block;width: 180px;margin:0 5px;padding: 5px;border-bottom: 1px dotted #EFEFEF;}
+header label input[type="checkbox"]{margin-right: 5px;}
+label:hover{cursor:pointer;background-color: #EFEFEF;}
+.wrapper{display: block;width: calc(100% - 30px);max-width: 1100px;padding: 30px 15px 100px 15px;margin: 0 AUTO;overflow: hidden;position: relative;background-color: #FFFFFF;}
+/* ログ部分 */
+dl{display: block;margin: 0;padding: 3px;box-sizing: border-box;}
+dl::after{display: block;content: "";clear: both;}
+dt{display: block;font-size: 0.8em;font-weight: bold;float: left;width: 100px;margin: 0;padding: 5px 5px;text-align: right;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+dd{display: block;width: calc(100% - 120px);margin: 0;padding: 2px;float: right;line-height: 1.8em;}
+.zatsudan{width: 95%;margin: 0 0 0 AUTO;background:#f7f7f7;border-left:1px solid #CCCCCC;}
+.other{background-color:#fff7ef;}
+.secret{width: 98%;margin: 0 0 0 AUTO;border-left:3px solid #CCCCCC;}
+.group{background:#f9f9f9;border-left:1px solid #CCCCCC;}
+@media (max-width:480px){
+  dt{display: inline-block;float: none;width: calc(100% - 6px);margin: 0;padding: 3px 0 0 3px;text-align: left;}
+  dd{display: inline-block;width: calc(100% - 6px);padding: 3px;float: none;}
+}
+</style>
+<style>
+
+</style>
+</head>
+<body>
+<label for="toggle" id="label_toggle">表示/非表示</label>
+<input type="checkbox" name="toggle" id="toggle">
+<header>
+<label>▽ 非表示にするタブ</label>
+<label for="main"><input type="checkbox" onClick="Hide(this)" class="checkbox" id="main">メイン</label>
+<label for="zatsudan"><input type="checkbox" onClick="Hide(this)" class="checkbox" id="zatsudan">雑談</label>
+
+</header>
+<div class="wrapper">
+<h1>村八分人力TAS[main]</h1>
+<h2 id="day1">村八分人力TAS[main]</h2>
+<dl style="color:#888888" class="main"><dt>金子　英嗣 (かねこ　えいじ)</dt><dd>     狂気表  いろんなサイ(11) ＞ PSYCHO。感情を喪う。  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    それではこれよりクトゥルフ神話TRPGシナリオ「村八分人力TAS」を開始します。   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>     干支狂気表(4) ＞ 卯。 安産化。性欲の暴走。  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    貴方達は殺刃異村の宿泊券を貰ってやって来た<br>この村はH県南部に存在し、海の綺麗なことで有名な村だ   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    村行きのバスが1日に1本しか通らない交通の便の悪さから周囲から独立しているが、海の綺麗なこと、食事の美味しさ、また独自の文化が見られるという夏祭りが密かに噂されている   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    朝、貴方達は村唯一の宿、「詩音奴澄(しねどす)」のチェックインを済ませたところだ、玄関ロビーに集まっている。<br><br>探索者達に加えて探索者の共通の知人である座間航太さんもその場にいる、すっかり浮かれポンチの顔である 。<br>   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    ここで探索者同士の自己紹介等のRPができます。<br>また、探索をしたり、女将から話を聞くことも可能です。<br><br>探索箇所<br>【全体、テーブル】   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    ここが殺刃異村の詩音奴澄かぁ〜テーマパークに来たみたいだぜ　テンション上がるなぁ～   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    さてと、姉さんが興味を持ってたから来たはいいけど、こんなに不便とは…それ以外の魅力が姉さんに相応しいか、しっかり調査しないと   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    …はぁ、なんで俺がこんな所来なきゃいけないんだよ、だりぃな。学校の行事ってなんでこう無駄なものが多いんだろうなぁ   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    息抜きがてらここに来たけれど、あまりに遠かったわね。<br>何か気晴らしになるものがあるといいけど。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    ここもなんか面白そうだってお客さまから聞いたからな。話聞くだけで喜ばれるかもしれねぇアッハッハッハ。…あれ？座間クンじゃ～んここで何してるの観光？旅行？缶詰？家出？勘当？出家？   </dd></dl>
+<dl style="color:#888888" class="main"><dt>座間</dt><dd>    誰かと思ったら月火くんじゃん。てか、俺がパパから勘当される訳ないだろー？観光だよか・ん・こ・う！！海の幸食ったり祭り行ったりしたいじゃん！   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    ほんじゃ、ちょっと話きいて女将からも話きくかなーっと！そこのお方ー！取材してもいいですか！？(八津さんにはなしかけます)   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    俺ですか…？なんでしょう？   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    はいそうです〜！youは何しに殺刃異村へ〜？   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    そうですね、姉さんが観光しにくるのに相応しい村かどうか、事前調査に   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    さすが座間ファザー、またおハナシにお伺いしま～す。で、観光いいね。座間クンここのこと調べてきたん？俺なんも知らんからおすすめおしえてよ～。なぁなぁ。（※鬼塚さんと八津さんの後ろで座間クンに絡んでいます）   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    姉の為に事前調査！？フツーに一緒にくればいいのに！知らないとこ一緒に歩くことに喜び感じないタイプですか！？   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    姉さんは友達に声をかけられているようなので、邪魔しちゃ悪いじゃないですか   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    これがその姉さんです。綺麗でしょう？<br>人気者ですから、僕が独り占めしらたダメなんですよ   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    (なんかうるさい人達がいるなぁ、という目で鬼塚さんたちを眺め)   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    って言ってスマホの待ち受けを見せます   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    そっかぁ〜美人な姉思いなんだね！！身内に独り占めもクソもないと思うけど！ありがとう！参考になったよ！私は鬼塚、君は？   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    僕は八津、八津廻です。そして姉が八津紅といいます。どうぞ、姉さんだけでもお見知りおきください   </dd></dl>
+<dl style="color:#888888" class="main"><dt>座間</dt><dd>    なに、月火くん事前情報無しにこの村にきたカンジ？なんといってもまずは海がめちゃくちゃ綺麗！海鮮系も新鮮ですごく美味しい！……ってことしかしらねーんだよな！こういうのは地元民に聞いてこそっしょ！みたいな！(とデカイ声でゲラゲラ笑いながら二良さんに言う)   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    八津くんね！あと紅さんね、会ってない人覚えてどうすんだって話だけどおっけ、メモリーに保存しとくよ！私ブロガーやってんだ！おもろいものみつけたら声かけてね！死体とか！   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    座間クンも全然知らなくてウケる、女将さ～ん♪俺たちに観光名所教えてください。（女将の元へ行きます）   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    (そういって早々に八津君の前から姿消します)   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    覚えておいて損はないと思いますよ。もしすれ違ったとしても、少しでも記憶にあれば気づけますし、気づけたならきっと姉に救われ(延々とうっとりとPRを語り続ける)   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    おーい！そこのいかにも不良そうな少年！ちょっと取材してもいいかなー！？(黒崎に声かけます、大声で)   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    …？は？え、俺ですか…？なんか用すか？(自分に来ると思わず驚いた様子で聞きながら怪訝そうな顔で聞き返し)   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    もちろん！私ブロガーでさ、来た人がなんで来たのか聞いて回ってんだ、見たところ……修学旅行とか？(ニコニコと笑ったまま話し)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>女将</dt><dd>    ようこそお越しくださいました。観光名所でしたら、先程の男性が仰っていたように海が綺麗でオススメですよ。この村は海が綺麗で、食べ物が美味しいですから、昼ごはんには海岸の方へ行くことをオススメします。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>女将</dt><dd>    小さいですが、海の家があります。そこで海の幸を振舞っているんです。もちろん海で泳ぐこともできますよ。   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    …おっと、そうだった。女将さんに村の観光の目玉を聞かないと(女将さんの声を聞きようやく戻ってくる)   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    へ、へぇ…俺は高校の修学旅行でこの旅館に来てるだけっすね。本当はこんなとこ来たくなかったんだけど…   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    海か～。海の家に可愛い女の子いますか？海以外はあります？神社とかそういうのはないんかな。ご挨拶したいんすけどねえ。（八津くんと並んで聞いています）   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    うんうんうん！そうだよねぇ〜殺刃異村なんて名前の場所を修学旅行に選ぶ学校おもろいね〜帰る時友達半分とかになってないといいねぇ〜！   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    （周りの状況を見て、とりあえず女将の話を聞こうと女将の方を見る九条）   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    …え？そんなヤバいところなんすか？ここ…なんだそれ、さっさと帰りてぇんだけど…   </dd></dl>
+<dl style="color:#888888" class="main"><dt>女将</dt><dd>    もちろん、神社もございます。……そうそう。神社といえば、今日の17時から神社でお祭りがあるので行かれたらいいと思います。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>女将</dt><dd>    この日の為に村のみんなが舞とえんそうを練習したんですよ。神社では、屋台も並びますし、お神酒が配られます。アルコールをとばしてある甘さ家なので未成年の方でも美味しくいただくことができますよ。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    まぁやばいのは名前だけかもだし、君も生きて帰れるといいね。私は鬼塚凛火、君も名前聞いといていいかな。   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    へえ、お祭り…何のお祭りなんですか？   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    （八津くんの言葉にふんふん頷くニラ）   </dd></dl>
+<dl style="color:#888888" class="main"><dt>女将</dt><dd>    殺刃異村で祀られている村の神様のためのお祭りです。名前までは知られてはいませんが、村にとっては大切な神様なんですよ。   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    えっと…黒崎凛って言うっす…(生きて帰れないのかもしれないということに気づくと青ざめたまま答え)   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    ほぉ～ん…まっ、そんな日に来れたのは何かの縁だね。ありがとう女将！美人ですね！ネッ、そう思いません？（八津くん九条さんに急に話題を振る）俺、二良です。おふたりはどこへ行くか決めました～？   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    え、りん？名前ほぼ一緒じゃ〜ん！いっぱいいる学生の中で話しかけたのが君だったのは、運命かもね……。安心して、私こう見えても得意なんだ！人を蹴るの！！…だから何かあったら頼ってよ(元気づけるように肩たたき)   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    まあ姉さん程じゃないですけれど、確かに。<br>僕は八津廻と申します。僕はとりあえずは海の方に行こうかと。海の家の状態が知りたいので   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    私は「九条 彩葉」です。<br>特に行く場所は決めてなかったですけど、私も海に行こうかと思っています。   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    一緒なんすか…？へ、へぇ…け、蹴るの得意なんすか？見かけによらず強いんすね…(おどおどしながら肩叩かれ)   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    廻クン！彩葉チャン！海の家の状態ってどゆこと？でも俺も昼は海って思ってたんで奇遇ですね。何かの御縁ですから、一緒に行きましょうよ～。座間クンも    </dd></dl>
+<dl style="color:#888888" class="main"><dt>座間</dt><dd>    人数多い方が楽しいっていうし。なんならこれも何かの縁だしさ！！なんなら俺がメシおごるわ。金ならある！   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    うん！元プロなんだ〜、相手選手を殺しかけたから引退せざるを得なくなっちゃったんだけどね！それじゃあ、黒崎くん！取材ご協力ありがとうね！(手を振り離れていった)(自由人）   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    やばい、座間クン天才。マジ持つべきものは（太っ腹な）ダチだわ。決定！感謝！謝謝！俺夕方には祭り行きますけど、お三方はどうです？　   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    お、おう…な、なんだったんだあの人…。俺、生きて帰れるのかな…(青ざめ)   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    てか座間いたのか   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    そうですね、祭りの方も可能ならみたいですし、座間がおごってくれるなら祭りも一緒に回りましょう   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    賛成過ぎ。そうしようそうしよう。座間クンあざっす！あと、俺燃やすもん探してるからみんな見つけたら俺に教えてね～！（？）    </dd></dl>
+<dl style="color:#888888" class="main"><dt>座間</dt><dd>    俺ずっといたはずなんだけどなぁ。廻くん今更すぎじゃね？まぁ祭りでも奢っちゃうケド。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    うーん、引き続き取材しようと思ったけど……なんかみんな喋ってんなぁ、おもろいものないか探すかぁ(探索します、全体を)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    目星どうぞ   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    CCB&lt;=25 【目星】 (1D100&lt;=25) ＞ 68 ＞ 失敗  </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=75 【目星】 (1D100&lt;=75) ＞ 56 ＞ 成功  </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=25 【目星】 (1D100&lt;=25) ＞ 31 ＞ 失敗  </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    ごめんて。もしかして、座間のことだから他の人も知り合いだったりする？(とついでに辺りも見回す)   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=80 【目星】 (1D100&lt;=80) ＞ 63 ＞ 成功  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    （ここでニラも周りを見て情報を集めます）   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=80 【目星】 (1D100&lt;=80) ＞ 30 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    先に処理からいきますね。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    壁に絵画が飾られています。魚の絵が多いです。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    また、目星に成功した鬼塚さん、八津さん、二良さんは一つだけ蛸の絵を見つけます。よく見るとその蛸には羽根が生えており、少々不気味に感じるでしょう。   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    なんでタコに羽…？   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    んんん？なんだこれ……ここだけファンタジー？写真撮っちゃお！(スマホパシャパシャ）   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    魚の絵…腹減ったなぁ   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=80 【オカルト】 (1D100&lt;=80) ＞ 16 ＞ スペシャル  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    二良さんは自身の知識で羽根が生えた蛸の絵が何なのかを思い出そうと試みますが、自身が知っている妖怪や現象等のどれにも当てはまらない当てはまらないことが分かります。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    スペシャルについてはここで出せる情報がないので、次に振る技能を振る際に+10%の補正にしましょう。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    この蛸……。何らかの新種か？実物獲れたらすごそうだな～。美味いかな。　　   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    うーん他になんかあるかなぁ（地面を這いつくばってテーブルの下などを見て）（テーブル探索します）   </dd></dl>
+<dl style="color:#888888" class="main"><dt>座間</dt><dd>    何八津くん他の人が気になる感じ？一応全員知り合いではあるケドさ。友達紹介して欲しいの？？   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    え、マジだったのかよ。言ってみただけだったんだけど   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    それだったら、高校生？ももう一人いるし、おごってあげるついでに声かけてくか？   </dd></dl>
+<dl style="color:#888888" class="main"><dt>座間</dt><dd>    人数多い方が楽しいし巻き込みにいこーぜ。おーいそこのボウズとメガネの女の子ー！俺が奢るから一緒に海いかねー？(と黒崎さんと鬼塚さんを巻き込み)   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    は？なんで海なんか行かなきゃいけねーんだよ、俺腹減ったんだけど…(魚の絵で腹が減った様子で相手を睨み)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    テーブル探索&gt;目星どうぞ   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=75 【目星】 (1D100&lt;=75) ＞ 71 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    村の簡易的な地図が置かれています。地図には海岸、商店街、住宅街、神社が主にあります。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    お！！いーもんみっけ！！写メってメモっとこ！   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    お、海ね〜了解。綺麗で有名なんだっけ？(座間のところに行き）   </dd></dl>
+<dl style="color:#888888" class="main"><dt>座間</dt><dd>    誰かと思ったら鬼塚サンじゃん。そうそう、綺麗！メシも美味い！泳げる！の楽しいの三点盛りらしい！   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    いいね！ご飯にあり得ない郷土料理とか、人食いサメとか出ると最高だな〜！！   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    座間クーン、地図とか見っけた？…て、取り込み中？このおねーさんともお知り合い？   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    あ、地図あるよ、送ってあげるね〜！(みんなに地図を配るという名目で連絡先を聞き出しはじめ)   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    もしよろしければ僕にも送ってもらってもいいですか？   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    わ～ありがとうございます！俺、二良月火です。よろしくお願いします～（にこにこと仕事用の連絡先を交換した）お姉さんも俺らと海行きます？    </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    地図…？一応、貰っとくか…鬼塚さん…だっけか？俺も地図もらってもいいすか？(スマートフォンを取り出して鬼塚さんへ声をかけ)   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    もちろんだよ〜！！あ、お礼にお姉さんの写真とかはいらないよ！現実で見た時驚きたいからね！   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    わ〜こちらこそ！鬼塚です〜！よろしくね！海行くよ〜旅館内はあんま危険なものなさそうだからね、名前の割に。   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    私も地図データ、いただけますか。（スマートフォンを準備し）   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    うん！どうぞどうぞ、なんかの縁らしいし一緒に回ろうね、先生に怒られない範囲で！(スマホぽちぽち)   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    そうかそうか！鬼塚さんはわかってるね！！でもきっとお守りにもなるから、ベストな三枚だけは送るね<br>地図もありがとう   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    え～何この状況～おもろ。全員でグループ作るのどうです？そこの不良少年クンもご一緒に。座間クン！（パンパン！と手を叩く）   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    あれ、かわい子ちゃんだ、どうぞ。私は鬼塚です。どうぞよろしく。座間に変なことされたらぶん殴るんだよ〜（地図送信し)   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    おう…どうせクラスの奴らにツレはいないし、いいっすよ、一緒に回っても   </dd></dl>
+<dl style="color:#888888" class="main"><dt>座間</dt><dd>    はいはい呼ばれました座間クンでーす！殴られるのだけは勘弁！とりあえずLI○Eでグループ作っといたからこれで良い感じ？安心しろボウズ、おにーさんがメシたくさん奢ってやるからさ！(ぱぱっとLINEグループ作成)   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    デキるね座間クン！ありがとう！地図とかおもろ写真とかココに共有しますね～。迷ったりしたら連絡しまーす！（スタンプ送信しつつ。）こんな大人数（？）で海、楽しみだねえ～。   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    （「九条 彩葉です。よろしくおねがいします」、とグループにメッセージ送信)   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    え…ほんとか？あとで絶対飯奢れよ、約束だからな。高い寿司とかで頼むぞ、座間   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    八津廻と申します。村にいる間はよろしくお願いします。<br>それと、こちらは姉の八津紅の写真になります。<br>きっと皆さまの人生を照らしてくれる人なので、是非いつか会いに来てくださいね。<br>(と言ってさっき鬼塚さんに送ったものとは違う写真を三枚グループに送りつけます)   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    (送られてきた3枚の写真を見てなんだこいつ…という目で八津さんを見つめ)   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    八津くん、人間はいい人ばかりじゃないんだから、信用のない人に身内の写真送らないほうがいいよ。悪用するよ、私とかが。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    そうですよ、俺とかね。冗談です。さぞご自慢の姉君なんですねえ。    </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    (なんでお姉さんの写真…？と思いつつもつっこむのが野暮なのでスルー）   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    姉さんの前で人がその悪辣さを保てるわけないので、大丈夫ですよ<br>それに、もしもの時があったとして、その時は僕が責任をもって排除するのでご安心ください   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    …ん？   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    今、僕の姉をやましい目で見ましたか？   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    あーっと…同じ高校生、だよな。俺は黒崎凛、よろしく…八津は、姉さんの写真たくさん持ってんだな(少し引き気味に挨拶し)   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    おっ、いい心がけだ。自慢の蹴り技を使いたい時は積極的に活用していくことにしていくよ。あといやらしいめで見れないよ、神々しすぎるとそんな欲求湧かないでしょ。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    えっ写真ってそういうものだったですっけ…？俺、外界に触れな過ぎ？あと、右に同じくです。俺、お仕えする神は決まっているので…。　   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    なんだ、お二人ともいい人だったんですね。これは失礼しました。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    （面白いけど心配になるなあこの子って顔）    </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    神にお仕えというと、もしかして神父さんですか？   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    いえいえ、俺は神社に努めるしがない巫ですよ。女でいう、巫女さん…的な？占いとかそういうこともしてるので、困ったらご相談どうぞ。お安くしますよ！    </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    へえ！あれって男性バージョンもあるんですね！今度是非姉と行くので、後ほど場所を教えてくださいね   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    次の場所の探索に入る前に探索についての軽い説明だけさせていただきます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    現在時刻11時です。探索箇所1箇所につき、1時間が経過します。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    普通に村を観光するなら祭りは17時からのため、17時に神社に向かった方がいいでしょう。<br>なお、このシナリオでは探索情報を得たあとのその場所の扱いは一切問わないので気に食わなかったら実力行使に出ることも可能です。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    探索可能箇所については前回の情報で得ていると思いますので、省略させていただきます。説明は以上になります。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    それでは、海にいきます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    白い砂浜、ターコイズブルーの綺麗な海が広がる海岸だ<br>小さい海の家があり、そこでご飯を食べることも出来る<br><br>《探索箇所》<br>海、海の家   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    ひゃっほー！海だ！    </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    あおーい！   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    まぶし…   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    俺は一足先に海の家で飲み物でも買ってきますよ。可愛いコいるかな♪（海の家に移動し探索します。一緒に来る方いたらどうぞ～）   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    僕も海の家へ行きたいと思います。防犯面や衛生面、木の板の傷み具合も見ておかなきゃいけないので   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    海か…興味ねぇなぁ…海の家なら飯食えるか？   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    座間クンのおごりで食べられますよ！   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    海だ海だー！(海の方へ駆け出します)(海探索します）   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    せっかく来たから私も海の家行きます。<br>ここにいて日焼けするの嫌だし。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    先海のほうから処理いきましょう。鬼塚さんは目星を振ってください。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=75 【目星】 (1D100&lt;=75) ＞ 43 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    きれいな海です。砂浜では子供たちが遊んでいる平和な場所です。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    また、目星の成功報酬として、少し遠いところで釣りをしている人がいることが分かります。釣竿の周りには異常に魚が群がっており、ポンポンと釣っていることがわかります。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    (詳しく見れますか？または話は聞けそうですか？)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    なにをしているかの話は聞けるかもしれませんが、詳細を聞くのは難しいかもしれません。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    すいませ〜ん！しがない余所者なんですけども！今何を釣ってらっしゃるんですか〜？(釣り人に話しかけてみます）   </dd></dl>
+<dl style="color:#888888" class="main"><dt>釣りをしてる村人</dt><dd>    余所者だぁー？あ、お前さんもしかして観光客かい？今釣れてるのは……アジとかイワシとか、光り物が多いかねぇ。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    そうです！観光するブログやってて〜、光り物！いいですね！こんなに釣れるのは秘訣があるんですか？   </dd></dl>
+<dl style="color:#888888" class="main"><dt>釣りをしてる村人</dt><dd>    詳しくは企業秘密ってやつだから言えねぇなぁ。でもよ姉ちゃん、おらが釣った魚はどれも新鮮でウメェぞ～(と豪快に笑います)   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    あっはっは、そうですよねぇ！こんな簡単に釣れる方法分かったら居なくなるまで取られちゃいそうですし！どこかに提供とかしてるんですか？   </dd></dl>
+<dl style="color:#888888" class="main"><dt>釣りをしてる村人</dt><dd>    釣った魚は商店街で売ったり、近くだとすぐそこの海の家で提供してるさ。あそこの海の家の料理はどれもオススメさ。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    おぉ、じゃあさっそく向かってみます！お話ありがとうございました〜！海に落ちないようお気をつけて〜！海はいつでも人間を食べたがってますから〜！（走りながら手を振った)(海の家に向かいます、適当なところで合流します！）   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    おまたせしました。次に海の家の描写になります。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    村人が経営してる小さな海の家だ<br>何人かの村人が客として来ている<br>海の幸が豊富に使われたメニューが売りらしい<br>ここで昼食をとれる<br>また、店主に話を聞ける<br><br>【探索箇所】<br>全体、メニュー<br><br>また、注文を行う場合、料理も調べることが可能です。   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    (とりあえず宣言通り全体のチェックがしたいです)   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    （同じくです）   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    腹減った…なんか食えるか？(メニュー見ます)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    先に全体からいきますね。全体を調べる方は目星と聞き耳をどうぞ   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    （私も全体チェックやります）   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=80 【目星】 (1D100&lt;=80) ＞ 31 ＞ 成功  </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=60 【聞き耳】 (1D100&lt;=60) ＞ 95 ＞ 失敗  </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=25 【目星】 (1D100&lt;=25) ＞ 80 ＞ 失敗  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=80 【目星】 (1D100&lt;=80) ＞ 93 ＞ 失敗  </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=40 【聞き耳】 (1D100&lt;=40) ＞ 95 ＞ 失敗  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    （10％補正、後にとっといて大丈夫ですか？ダメそうなら聞き耳に使います）   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    後に取っておいてもいいですよ   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    （ありがとうございます！やた～！）   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=80 【聞き耳】 (1D100&lt;=80) ＞ 65 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    こじんまりとした雰囲気の海の家です。目星に成功した八津さんは、床に魚の鱗がやけに落ちていることに気が付きます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    また、聞き耳に成功した二良さんは、なんだかやけに魚臭いなと感じるでしょう。   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    衛生面✕、と…(スマホにメモ)   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    なんか…魚くさい…。    </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    解体ショーでもしてたのか？(といって鱗を拾う)   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    (鱗に対して何か振れますか？)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    鱗に対して振るのは難しいかもしれません。   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    (承知しました。では鱗を捨てます)   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    廻クンなにしてんの～？（何を捨てたのか見に行きます。におい情報と併せて何か振れますか？）    </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    魚の鱗が散乱していたので、少々気になりまして   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    出る情報はほとんどないかと思います。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    鱗ぉ？…ほんとうだ。何の鱗だろう？やけに魚臭いですし、イベントでもしてたんですかね？（情報了解です！ありがとうございます。）俺、店の方におすすめ聞きに行ってきます～   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    ではメニューの方にいきますね。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    メニュー<br>注文することができるようだ<br><br>『海鮮焼きそば 300円<br>海鮮カレー 300円<br>海鮮丼 500円<br>魚介パスタ 300円<br>シーフードピザ 300円<br>フライドチキン 150円<br>フランクフルト 100円』   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    僕も姉さんの舌に合いそうなものがないか見ておかないと…   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    どれも美味そうだな…じゃあ、海鮮焼きそばとフランクフルトとフライドチキン。座間の奢りで(早口で注文し)   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    じゃあ…私はシーフードピザとフランクフルトでお願いします（金額を見て安すぎないか、と思いながら注文）   </dd></dl>
+<dl style="color:#888888" class="main"><dt>座間</dt><dd>    みんなガンガン頼んじゃってよ！俺の奢りだからさ！(財布取り出し)   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    俺は店主さんのおすすめ聞いてくるんで、あとで合流しますね～     </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    注文した料理は、頼んだものがちゃんと出てくるでしょう。どれも美味しそうです。   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    座間、あといくらあんの？あとで遊ぶ金もある？(座間の財布に注目して狙ったように目線を外さず)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>座間</dt><dd>    とりあえず現金で12万くらい？クレカもあるし金の心配はしなくて大丈夫大丈夫(と黒崎の肩をばしばし)   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    あ、もう注文してたんですね。えっと、姉さんが頼みそうなもの…そうだな、海鮮焼きそばと魚介パスタください。   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    へぇ、結構頼もしいじゃん、座間。じゃああとで追加も頼もうかなぁ(機嫌良さそうに述べ)   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    お！みんな揃ってるじゃーん！ていうか、海みてたの私だけだった……？じゃあ私は海鮮丼たーべよっと！おねがいしまーす！(店に入れば早々に注文し)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    それぞれ頼んでいた料理が運ばれてきます。どれも美味しそうな料理です。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    来るのはっや、みんなも料理揃ってる？いただきますしていい？(割り箸わり)   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    美味そう…もう食っていい？   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    では料理頼んだ方は目星いきましょう。   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    いただきます   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=25 【目星】 (1D100&lt;=25) ＞ 68 ＞ 失敗  </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=75 【目星】 (1D100&lt;=75) ＞ 94 ＞ 失敗  </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=80 【目星】 (1D100&lt;=80) ＞ 78 ＞ 成功  </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    CCB&lt;=25 【目星】 (1D100&lt;=25) ＞ 18 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    先に失敗した人から処理します。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    目星に失敗した九条さん、鬼塚さんは運ばれてきた料理はどれも美味しく感じます。なんの疑いもなく食べてしまうでしょう。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    次に目星成功した方の処理です。海鮮系のメニューを頼んだ八津さんと黒崎さんは、魚がゴロゴロ入っていて美味しい魚なのにやけに破格だなぁ、と感じます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    そしてフライドチキンとフランクフルトを食べた黒崎さんは、フライドチキンについては鶏肉っぽくないアジがするなぁ…と感じます。フランクフルトについても、少し不思議な味で食べたことの無い肉なきがするでしょう。   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    (なんか安いけどうまいからいいか…ん？なんかこの肉変な味すんなぁ…)   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    うん！めーちゃくちゃ美味しい！やっぱり鮮度がいいのかな？あれだけ釣れるから安いんだろうなぁ〜！ここに永住したいくらいだ〜！   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    海の家だからってこんなに入っててこの値段…採算取れてるのか？   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    まぁ、お得な分にはいいか。味〇、値段〇…と   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    確かにこんな魚入ってんのに安いよな(ばくばく)   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    さっき海で釣りしてる人見かけたんだけど、バカみたいにつれてたから、余ってるくらいあるんじゃないかな？(八津くん達に海での話共有し)   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    ………、でも、チキンやフランクフルトまで安いのは不思議だね！   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    安くて美味しいから学生にとってはありがたいですよね。   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    ん…このフランクフルトとフライドチキン、変な味すんだけど…(言いながらも爆食)   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    へえ、サビキ釣りですかね。地元ならではということなら納得…か？   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    味が変？……成型肉なんじゃない？本物じゃなくて別の何かを使ってるとか！安さの秘訣はそこかぁ。   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    ふーん…なんか変なもん混じってないだろうな…(もぐもぐ)   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    あぁ、カップラーメンとかに入ってる立方体のやつですか？   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    あーそうそう謎肉ってやつね。大丈夫大丈夫、今の所全員生きてるし！あとからぶっ倒れたら慰謝料請求しようね〜！   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    謎肉…なのか……まぁ普通に食えることは食えるし大丈夫か(げふ   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    店主さ～ん！おすすめ聞いてもいいですか？    </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>       </dd></dl>
+<dl style="color:#888888" class="main"><dt>店主</dt><dd>    オススメですか？ウチは魚がほんとに美味しいからそれを売りにしてるんです。なので、オススメはお魚を使った料理になります。美味しい上に量がとれるのはうちの神様のおかげです。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    神様ですか？漁業系とかです？    </dd></dl>
+<dl style="color:#888888" class="main"><dt>店主</dt><dd>    それはもちろん神様です。お祭りのことは聞いてませんかね？神様が今年も元気でいられるようにみんなでお祭りをするんですよ。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    神様が元気…へえ。随分信心深いんですねえ。関心関心です。自分この後お祭りにも行く予定なんですけど、いかんせん無知でして。ご由緒など詳しく聞いても？（心理学やオカルト等なにか振れそうなら振りたいです～）    </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    でしたら、心理学を振って村人が嘘をついてるかどうかを調べる、というのはどうでしょうか   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    （いいですね！やらせていただきます）   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    それでは、心理学を振ってください。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=65 【心理学】 (1D100&lt;=65) ＞ 52 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    店主は嘘をついてはいなさそうです。しかし何かを隠してそうでもあるな…？と感じるかもしれません。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>店主</dt><dd>    村の神様については私も詳しくないんですよ。恐らくですが、詳しく知っているは村長かと思われますが……なんせ、祭りの準備で忙しくしてらっしゃるので……。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    ほうほう、村長どの。これはこれは、お家の場所をお伺いしても？……やや、にしても店主さん…まだ俺に話せそうなオハナシがありそうですねえ。自分こう見えて神職なんですよ、後学のためにも教えてもらえませんかあ～？（聴き出せそうならAPPや信用あたりで聞き出します。なさそうなら村長家の情報を聞き、向かいます）    </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    聞き出せそうな情報はこれで全てになりますね。また、   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    村長の家も店主の口から割り出すことはむすがしいかもしれません。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>店主</dt><dd>    わたくしめは普通の村人なので教えたくても教えることが難しいんですよ……(と困り顔)   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    そうですかそうですか、では散策がてらお散歩するとしますねぇ。ところでなんでこの店には魚の鱗が落ちていたり、おさかなのつよいにおいがするんですかねえ？   </dd></dl>
+<dl style="color:#888888" class="main"><dt>店主</dt><dd>    はて…鱗？ですか。変ですね、掃除はきちんとしているはずなのですが……   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    そうですかそうですか、自然発生ですかねぇおかしいですねえ。では、暑いですし店主さんもどうぞ“お気をつけて”！    </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    みなさ～ん、聞き終わりましたよ～。なにやら村長どのがいろいろお詳しいらしくて～、聞きに行きませんか？というか行きましょう！鼻がさかなになっちゃいます～    </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    あ、ちなみに食事はどうでした？美味でしたか？    </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    おーいしかったよ！大満足！   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    私もおいしく食べられましたよ。   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    まぁ変な味はあったけど美味かったな…   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    値段も安いし、安い割には魚介が多くて味もいい。衛生面を除けば姉さんに紹介してもいい店だったよ   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    強いていうならスリルが足りないかな？変な郷土料理もなかったしぃ〜…   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    それはよかった！俺は残念なことに食べられませんが、皆さんの感想で満足ですよ～。…っていうか変な味って、スリルなのでは？…まあ、外へ出ましょうか！さあさあ！（座間クン含めて全員海の家から出します。促します。強く）   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    私のは美味しかったからなぁ、ニラくんなんかおもろい事きけた？それかおもろいことしてよ〜（むちゃぶりいいながら外出ます)   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    とりあえず海の家から出るか…(二良に連れられて足早に退出し)   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    （周りにそのままついて行く九条）   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    は、はぁ…じゃあ次はどこにしましょう？(マップの写真を見ながら外に出る)   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    （店を出しな、どこからか拾った火種を店に投下）   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    えっ   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    二良が海の家に放つ。店主が気がつく頃にはもう手遅れ。海の家全体を炎がつつみこみ、そう早くはないうちに建物を燃やし尽くしてしまうだろう。   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    え…え？おい、なんか燃えてないか？   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    気のせいですよ。    </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    なんで…火事？   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    こんなこともあるんですねえ    </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    火の管理もずさんだったのか。姉さんが来た時じゃなくてよかった。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    ほんとうですねえ    </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    気の…せいなのか？   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    海の探索はこれにて終わりになります。次に移る前に全員幸運を振ってください。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=50 【幸運】 (1D100&lt;=50) ＞ 33 ＞ 成功  </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=80 【幸運】 (1D100&lt;=80) ＞ 86 ＞ 失敗  </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    CCB&lt;=80 【幸運】 (1D100&lt;=80) ＞ 90 ＞ 失敗  </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=80 【幸運】 (1D100&lt;=80) ＞ 59 ＞ 成功  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=65 【幸運】 (1D100&lt;=65) ＞ 94 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    貴方たちが次の場所へと向かうために海をあとにしようとしたその時   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    どこからか村人がワラワラと寄ってくる<br>槍を持った村人、棍棒を持った村人、老若男女問わずやって来る。<br>そしてその中心には煌びやかな和服を着た美しい青年と布で全身を隠した大男がいる。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>村長</dt><dd>    好奇心猫を殺すと言いますが、お客もそのようで   </dd></dl>
+<dl style="color:#888888" class="main"><dt>村長</dt><dd>    行き過ぎた行為には制裁を加えねばなりません   </dd></dl>
+<dl style="color:#e0e0e0" class="main"><dt>村人</dt><dd>    村長様の言う通りだー！   </dd></dl>
+<dl style="color:#e0e0e0" class="main"><dt>村人</dt><dd>    殺せー！   </dd></dl>
+<dl style="color:#e0e0e0" class="main"><dt>村人</dt><dd>       </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    その言葉に応じるように周りの村人は探索者達に罵声を浴びせる   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    「神主」と呼ばれた人物は布を剥ぐ   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    その布の下は腕から触手が生え、身体には尾ひれがつき、人とはかけ離れた見た目をしていた<br>SANチェック1or1d10   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    1d100&lt;=80 【正気度ロール】 (1D100&lt;=80) ＞ 80 ＞ 成功  </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    1d100&lt;=50 【正気度ロール】 (1D100&lt;=50) ＞ 44 ＞ 成功  </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    1d100&lt;=80 【正気度ロール】 (1D100&lt;=80) ＞ 48 ＞ 成功  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    1d100&lt;=65 【正気度ロール】 (1D100&lt;=65) ＞ 77 ＞ 失敗  </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    1d100&lt;=80 【正気度ロール】 (1D100&lt;=80) ＞ 3 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 八津　廻 ] SAN : 80 → 79   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 鬼塚 凛火 (おにづか　りんか) ] SAN : 50 → 49   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    1D10  (1D10) ＞ 6  </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 二良 月火 ] SAN : 65 → 60   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 二良 月火 ] SAN : 60 → 59   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    二良さんは一度に5以上のSAN値が減少しましたのでアイデアを振ってください   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=70 【アイデア】 (1D100&lt;=70) ＞ 54 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 黒崎　凛 (くろさき　りん) ] SAN : 80 → 79   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 九条 彩葉 (くじょう いろは) ] SAN : 80 → 79   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    二良さんは一時的狂気発症です。表から好きなのを選ぶかランダムで選んでください。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    狂気表  いろんなサイ 1d11 狂気表  いろんなサイ(5) ＞ 賓の暴走。ダイスの成功失敗が反転する。  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    では今から一時的狂気の発症が終わるまで、ダイスの成功と失敗の判定が逆になります。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    ここから村人との戦闘が始まります。が、その前に少し説明等をさせていただきます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    まず、村人は毎ターン1d6人増加します。こちらについてはターン開始時にこちらで人数を決めさせて頂きます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    そして探索者の皆さんは全員幸運を振ってください。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=50 【幸運】 (1D100&lt;=50) ＞ 89 ＞ 失敗  </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    CCB&lt;=80 【幸運】 (1D100&lt;=80) ＞ 86 ＞ 失敗  </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=80 【幸運】 (1D100&lt;=80) ＞ 47 ＞ 成功  </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=80 【幸運】 (1D100&lt;=80) ＞ 41 ＞ 成功  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=65 【幸運】 (1D100&lt;=65) ＞ 11 ＞ スペシャル  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    幸運に成功した九条さん八津さんは神社があるであろう裏の方角から、手招きをする包帯を巻いた白衣を着た人物がいることに気が付きます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    二良さんは普通に失敗判定でいきましょう。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    神社の裏の方角に逃げる場合、自分のターンでDEX×5or回避に成功する必要があります。<br>手伝う場合は手伝う人がDEX×3を判定し、成功した場合手伝われた人の判定に+20の補正が入ります。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    現在地は海なので、逃走成功するには4回判定に成功する必要があります。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    全員倒しきっても構わないですが、現実的では無いでしょう、とだけ言っておきます。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    そんな、私は何もしてませんよ！冤罪です冤罪！って言っても……あの状態の人たちがまともに話聞いてくれるわけないか、殺すって顔してるもんね。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    これはこれは、参りましたねえ。    </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    おわ、なんだよあのモンスター…！ゲームから出てきたみてーだな…   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    だれか、神社の陰からこちらに手招きしていませんか…？   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    ああ、確かに。だいぶ怪しいですが、どうしますか？   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    私たちで太刀魚出来る気がしませんし、あの人のところにいけば助かるかも…？   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    だそうですよ、皆さん   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    え？そうなんですか？見えないなぁ、でもここで逸れたらだれかしら死にそうだし、ついていきますよ〜！食後は運動したほうがいいですよね！   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    あ？どこに何が見えるって？(きょろ   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    （いろんな意味で）捕まりたくないので、俺もご一緒しま～す…   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    （全員見えてるわけじゃないの…！？）   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    よくわかんねーけど、逃げられる場所があるならそこへ案内してくれねーか？   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    それじゃあみんな逃げるの方向かな！じゃあ揃ってレッツゴ〜！   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    黒崎さん、九条さん、鬼塚さんはDEXが同じなので順番を確定させるために1d100を振ってください   </dd></dl>
+<dl style="color:#ffc107" class="main"><dt>龍レン</dt><dd>     (1D100) ＞ 34  </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    1D100  (1D100) ＞ 73  </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    1D100  (1D100) ＞ 67  </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    1D100  (1D100) ＞ 14  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    順番は八津さん→鬼塚さん→九条さん→黒崎さん→二良さん→以下敵でいきましょう。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    また、村人についてはまとめての失敗成功の判定になります。対象については成功した分対象を上から順に1～5の数字に振り分けてランダムに決めさせていただきます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    それでは戦闘開始です   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    まず増援人数からいきます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    1d6 (1D6) ＞ 1  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    1人増加しました。次八津さんどうぞ。   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    とりあえず、二良さんの状況も認識できてないので逃げます   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=18*5 【DEX × 5】 (1D100&lt;=90) ＞ 4 ＞ 決定的成功/スペシャル  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    今回の逃走で2回分の成功判定か、逃走+他探索者の逃走の手伝い、好きなほうを選んでください。   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    手伝いの方で   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    了解しました。スペシャルなので成功判定でいきましょう。二良さんは次の自分のターンで補正を-20してください。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    八津さん１回の逃走に成功です。次鬼塚さんどうぞ。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    いや〜海の近くで鬼ごっこなんてジョーズのオープニングみた〜い！ドキドキだね〜！(走り出し）   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=15.4*5 【DEX × 5】 (1D100) ＞ 33  </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=15*5 【DEX × 5】 (1D100&lt;=75) ＞ 79 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    村人に回り込まれてしまい上手く逃げられません。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    次九条さんお願いします   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=15*5 【DEX × 5】 (1D100&lt;=75) ＞ 62 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    九条さん１回の逃走に成功です。次黒崎さんお願いします。   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    CCB&lt;=90 【回避】 (1D100&lt;=90) ＞ 95 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    目の前にいる異形に驚きがと恐怖が隠せず、逃げ遅れてしまいます。次二良さんどうぞ。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    廻君、助けてくれてありがとうございます～。いやあ右も左もわからなくって、どうやらさんすうができなくなっちゃいましたよ。とりあえずここから離れましょう～    </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=9*5-20 【DEX × 5 -20】 (1D100&lt;=25) ＞ 66 ＞ 失敗  </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    いえいえ…って、どういうことなんですか？   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    いやあ、右って言われると左って思うし、左って思うと右で上なんです。つまり正常な行動ができないってことだけがわかっているんですけど、見てくださいこの冷や汗？先のうろこ存在を見たせいですかねえ。冷静な判断のために落ち着きたいんですけど、難しそうですねえ～。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    八津さんの補助のお陰もあり、１回の逃走に成功しました。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    次に神主のターン   </dd></dl>
+<dl style="color:#888888" class="main"><dt>神主</dt><dd>    CCB&lt;=65 【鉤爪】 (1D100&lt;=65) ＞ 31 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>神主</dt><dd>    choice[1-5] (choice[1,2,3,4,5]) ＞ 4  </dd></dl>
+<dl style="color:#888888" class="main"><dt>神主</dt><dd>    1d6+3d6 (1D6+3D6) ＞ 1[1]+6[3,2,1] ＞ 7  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    黒崎さんに攻撃があたります。黒崎さんはhpを7減らしてください。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    回避する場合は回避を振ってください。   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    CCB&lt;=90 【回避】 (1D100&lt;=90) ＞ 28 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    黒崎さんは間一髪で攻撃を避けました。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    次は村長のターン   </dd></dl>
+<dl style="color:#888888" class="main"><dt>村長</dt><dd>    CCB&lt;=35 【組み付き】 (1D100&lt;=35) ＞ 52 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    逃げられてしまったので組み付くこともできないようです。最後に11人の村人のターンです。   </dd></dl>
+<dl style="color:#e0e0e0" class="main"><dt>村人×11</dt><dd>    CCB&lt;=25 【棍棒】 (1D100&lt;=25) ＞ 97 ＞ 致命的失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    村人達は足元がもたついて団子状態になってしまい行動できません。次のターンも動くのは厳しそうです。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    2ターン目いきます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    村人の増援    </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    1d6 (1D6) ＞ 4  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    4人増加しました。八津さんどうぞ。   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    では普通に逃走   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=18*5 【DEX × 5】 (1D100&lt;=90) ＞ 31 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    村人達がもたついている隙をついて、八津さんは２回目の逃走に成功です。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 八津　廻 ] 逃走回数 : 1 → 2   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    次鬼塚さんどうぞ   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    えっなんで私を囲い込んでくるの！？年齢いってるほうがタイプってワケ！？(にげます)   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=15*5 【DEX × 5】 (1D100&lt;=75) ＞ 85 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    目の前にいる見たことの無い異形に動揺しているのかもしれない。次九条さんどうぞ。   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=15*5 【DEX × 5】 (1D100&lt;=75) ＞ 51 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    八津さんの後に続いて九条さんも順調に逃げていくでしょう。２回目の逃走に成功です。次黒崎さんどうぞ。   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    CCB&lt;=90 【回避】 (1D100&lt;=90) ＞ 73 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 鬼塚 凛火 (おにづか　りんか) ] 逃走回数 : 1 → 0   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 黒崎　凛 (くろさき　りん) ] 逃走回数 : 0 → 1   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    持ち前の速さでどうにか異形の元から離れ逃げ切ります。1回の逃走に成功です。次二良さんどうぞ。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    上下左右はわかりませんが、とりあえず仲間に続いて俺も逃げますよ～   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=9*5 【DEX × 5】  (1D100&lt;=45) ＞ 22 ＞ 成功  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    おおっと…？あれ？仲間を間違えちゃいました～。どうもどうも。ころさないでくださいね。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    仲間のいる方向とは逆の方向に逃げそうになってしまいます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    次神主いきます   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>     (1D3+1D4) ＞ 3[3]+1[1] ＞ 4  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    CCB&lt;=65 【鉤爪】 (1D100&lt;=65) ＞ 75 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    神主の攻撃はからぶります。次は村長です。尚、村人たちは1回休みなので村長の後は3ターン目入ります。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>村長</dt><dd>    CCB&lt;=50 【鉤爪】 (1D100&lt;=50) ＞ 53 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    村長の攻撃もからぶります。3ターン目、村人の増援からです。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    1d6 (1D6) ＞ 2  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    2人増加しました。八津さんどうぞ。   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    あれ、もしかしてだいぶ距離開いてる人いる？   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=18*3 【DEX × 3】 (1D100&lt;=54) ＞ 75 ＞ 失敗  </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    思ったよりうじゃうじゃいて近づけねえ   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    増えていくばかりの村人達に行く手を阻まれてしまいます。次鬼塚さんどうぞ   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    気づいたらめちゃくちゃ離されてる！？それとも村人が多くなっただけ？みんなまって〜！   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=15*5 【DEX × 5】 (1D100&lt;=75) ＞ 66 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    村人達の合間を縫って逃げて行きます。1回の逃走に成功です。次九条さんどうぞ。   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=15*5 【DEX × 5】 (1D100&lt;=75) ＞ 94 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    九条さんも村人達に行く手を阻まれてしまい思うように動けません。次黒崎さんどうぞ。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 鬼塚 凛火 (おにづか　りんか) ] 逃走回数 : 0 → 1   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    CCB&lt;=90 【回避】 (1D100&lt;=90) ＞ 13 ＞ スペシャル  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    2回目の逃走チャレンジか他探索者の逃走を手伝う行動をこのターン追加チャレンジするかを選んでください。   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    CCB&lt;=90 【回避】 (1D100&lt;=90) ＞ 89 ＞ 成功  </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    なんなんだよこいつら、うぜーなぁ…！元陸上部なめんなよ！   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 黒崎　凛 (くろさき　りん) ] 逃走回数 : 1 → 3   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    風のような速さで異形達から離れていく。3回の逃走に成功です。次二良さんどうぞ。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    仲間に…と思うからだめなのか？なら敵さんの元に向かう気で走りましょうねえ。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=9*5 【DEX × 5】 (1D100&lt;=45) ＞ 27 ＞ 成功  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    あららぁ…    </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    またもや仲間と異形を間違えそうになってしまいます。次は神主のターンです。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>神主</dt><dd>    CCB&lt;=35 【組み付き】 (1D100&lt;=35) ＞ 89 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    組み付き逃走阻止を試みますが思うように足が動かず失敗してしまいます。次は村長です。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>村長</dt><dd>    CCB&lt;=50 【鉤爪】 (1D100&lt;=50) ＞ 70 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    近くにいた探索者を攻撃しようとします。が、またもやからぶってしまいます。次村人17人数のターン   </dd></dl>
+<dl style="color:#e0e0e0" class="main"><dt>村人×17</dt><dd>    CCB&lt;=25 【槍】 (1D100&lt;=25) ＞ 77 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    槍での攻撃を試みますが失敗してしまいます。4ターン目、村人の増援からです。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    1d6 (1D6) ＞ 2  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    2人増加しました。次八津さんどうぞ。   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    あの人、逆の方向に走ってないか？   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=18*3 【DEX × 3】 (1D100&lt;=54) ＞ 74 ＞ 失敗  </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    いや、向かえない向かえない！多すぎだって！   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    逆方向へと向かう彼の元へ行こうとしますが、増えていく村人に思うように動けず、立ち往生してしまうかもしれません。次鬼塚さんどうぞ   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    うぉー！私いまどっち走ってるの！？こっちかー！？   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=15*5 【DEX × 5】 (1D100&lt;=75) ＞ 17 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    村人の合間を縫って逃走を続けていく、意外といけるかも！？と思うかもしれません。次九条さんどうぞ。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 鬼塚 凛火 (おにづか　りんか) ] 逃走回数 : 1 → 2   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=15*5 【DEX × 5】 (1D100&lt;=75) ＞ 97 ＞ 致命的失敗  </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    （なんで人数増えてるの…！？逃げられないじゃん…！！！）   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    増えていく村人、攻撃してくる神主達から逃げようとその場から走り出しますが足がもつれてしまい転んでしまいます。hpを1減らしてください。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 九条 彩葉 (くじょう いろは) ] HP : 14 → 13   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    次黒崎さんどうぞ   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    CCB&lt;=90 【回避】 (1D100&lt;=90) ＞ 56 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    黒崎さんは無事に包帯が巻かれた白衣の人物のいた方向へと走り切りました。逃走成功です。次からは逃走補助のみ行動可能です。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 黒崎　凛 (くろさき　りん) ] 逃走回数 : 3 → 4   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    よし、ここまでくれば大丈夫か…、って、あれ？まだ他の奴らは来れてないのか…？どこにいるんだ…(あたりを見渡し)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    次、二良さんどうぞ。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    どこに向かってもダメなら、もう適当に逃げましょうか。    </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=9*5 【DEX × 5】 (1D100&lt;=45) ＞ 87 ＞ 失敗  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    やや？ここはどこでしょうねえ～？    </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    仲間たちのいた方向へようやく逃げることができそうだ。2回目の逃走に成功です。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    神主のターンいきます   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 二良 月火 ] 逃走回数 : 1 → 2   </dd></dl>
+<dl style="color:#888888" class="main"><dt>神主</dt><dd>       </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    CCB&lt;=65 【鉤爪】 (1D100&lt;=65) ＞ 85 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    またしても神主の攻撃はからぶります。次は村長   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    CCB&lt;=50 【鉤爪】 (1D100&lt;=50) ＞ 55 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    村長も攻撃しようとしますがからぶります。最後村人。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    CCB&lt;=25 【棍棒】 (1D100&lt;=25) ＞ 48 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    棍棒も距離が離れて届きません。5ターン目。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    1d6 (1D6) ＞ 2  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    2名村人が増えました。次八津さんどうぞ。   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    いや、なんか大丈夫そう…？僕も逃げよう   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=18*5 【DEX × 5】 (1D100&lt;=90) ＞ 45 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 八津　廻 ] 逃走回数 : 2 → 3   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    黒崎に続いて順調に逃げることができるでしょうを次鬼塚さんどうぞ。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    えっほえっほ……えーっと……このミームって続きの言葉なんだっけー！？   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=15*5 【DEX × 5】 (1D100&lt;=75) ＞ 3 ＞ 決定的成功/スペシャル  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    決定的成功なので、2回分の逃走成功確定か他探索者の逃走補助確定成功を追加するかを選んでください。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    (2回分逃げます！）   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    思い出したぁ！〜って伝えなきゃっだ！あれ、黒埼くんだ。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    了解です。某鳥ミームパワーのおかげもありそのまま駆け抜け逃げ切る事ができるでしょう。鬼塚さんも逃走成功です。次九条さんどうぞ。   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=15*5 【DEX × 5】 (1D100&lt;=75) ＞ 35 ＞ 成功  </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    （あともうちょっとで逃げられそう…！）   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 九条 彩葉 (くじょう いろは) ] 逃走回数 : 2 → 3   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 九条 彩葉 (くじょう いろは) ] 逃走回数 : 3 → 4   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 九条 彩葉 (くじょう いろは) ] 逃走回数 : 4 → 3   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    鬼塚さんや黒崎さん、八津さんに続き逃げることができました。3回目の逃走に成功です。次は黒崎さんどうぞ。   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    (二良さんを助けに回避を振ります)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    どうぞ。   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    CCB&lt;=90 【回避】 (1D100&lt;=90) ＞ 68 ＞ 成功  </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    ん…？あそこにいるのは眼鏡の人…？おい、なにしてんだ、こっちだぞ…！(二良を見つけ出すと声を掛けて連れ出し)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    それでは、二良さんどうぞ。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    眼鏡のひと…？俺ですかねえ？はーい。向かいますね～    </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=9*5-20 【DEX × 5】 (1D100&lt;=25) ＞ 7 ＞ 成功  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    おや、あんなところに赤ちゃんが…   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    赤ちゃん(?)を見つけその方向へと向かう二良さんを見て、座間さんが慌てて二良さんの元へと飛び出します。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>座間</dt><dd>    神社はあっち！そっちじゃねーの！   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    座間クン！ええ？あそこにおばあさんいませんでした？…まあいいか…   </dd></dl>
+<dl style="color:#888888" class="main"><dt>座間</dt><dd>    いない！俺が足止めするから、さっさと逃げて！おーけー！？   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    そのまま村人集団に威勢よく突っ込んでいきます。彼はもうたすかりませんが、1ターン村人達の行動を阻止することが出来ました。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    これは…のちに祈祷をあげないとですね。ありがとうございます、座間くん…    </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    そのまま6ターン目行きます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    1d6 (1D6) ＞ 5  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    5人村人が増えました。八津さんどうぞ。   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    今一瞬座間の声が聞こえたような…気のせいか   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=18*5 【DEX × 5】 (1D100&lt;=90) ＞ 82 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 八津　廻 ] 逃走回数 : 3 → 4   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    一瞬聞こえた声は気の所為かも？と思いつつも八津さんも逃走成功です。次鬼塚さんどうぞ。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    あぁー！座間！お前！くそッ、かっこいい死に方しやがって！私も助けないと立つ瀬がないじゃないか！(にらさんほじょしますね)   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=15*5 【DEX × 5】 (1D100&lt;=75) ＞ 55 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    今までの経験もあり、上手く二良さんを補助できそうです。次九条さんどうぞ。   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=15*5 【DEX × 5】 (1D100&lt;=75) ＞ 96 ＞ 致命的失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    増えていく村人達に恐怖心は覚え、足は竦んでしまいますが今はそんな場合では無い、と思うでしょう。次黒崎さんどうぞ。   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    (二良さんを助けに回避振ります)   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    CCB&lt;=90 【回避】 (1D100&lt;=90) ＞ 50 ＞ 成功  </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    なんか、今座間が横切ったような…？ま、まぁいいか、眼鏡！こっちだ！(二良を連れ出そうと手を伸ばし)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    陸上部で鍛えた速さで上手くサポートができるでしょう。次二良さんどうぞ。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    ……こうなってしまってはなにがなんでも生き延びるしかありません。逃げます。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=9*5-40 【DEX × 5】 (1D100&lt;=5) ＞ 42 ＞ 失敗  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    おふたりのおかげで此度は迷わずに済みました！    </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 二良 月火 ] 逃走回数 : 2 → 3   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    2人のサポートのおかげもあり無事に逃げることができました。神主の攻撃です。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    CCB&lt;=65 【鉤爪】 (1D100&lt;=65) ＞ 46 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    1d6+3d6 (1D6+3D6) ＞ 5[5]+11[4,2,5] ＞ 16  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    choice[1-5] (choice[1,2,3,4,5]) ＞ 5  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    二良さんは一旦ねんねしててください。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    回避振る場合はどうぞ   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    悪いことをしたら罰が当たるとは正にこのこと。しかし命を繋いで頂いた分あがきましょう。回避   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=53 【回避】 (1D100&lt;=53) ＞ 3 ＞ 決定的成功/スペシャル  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    一旦ねんねする方向でお願いします。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    （では、気絶します）   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    次村長いきます   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    CCB&lt;=50 【鉤爪】 (1D100&lt;=50) ＞ 38 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    1d6+1d4 (1D6+1D4) ＞ 5[5]+4[4] ＞ 9  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    choice[1-5] (choice[1,2,3,4,5]) ＞ 5  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    でしたら、村長の攻撃+追い討ちオーバーキルの神主の攻撃で気絶してしまったことにしましょう。これをファンブル処理とさせていただきます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    村人達のターン   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    CCB&lt;=25 【棍棒】 (1D100&lt;=25) ＞ 83 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    村人達は気絶した探索者を見て盛り上がってます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    7ターン目、増援からです。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    1d6 (1D6) ＞ 3  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    3名新たに追加されました。次八津さんどうぞ。   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    お、おい…あれダメじゃないか?!<br>(って言って助けに行きます)   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=18*5 【DEX × 5】 (1D100&lt;=90) ＞ 56 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    八津さんは無事に二良さんの元へ助けにいくことができるでしょう。次鬼塚さんどうぞ。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    おおい！気絶すんな！踏ん張れ！お前が死んだら座間に合わせる顔ないだろうが！(引き続き補助します)   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=15*5 【DEX × 5】 (1D100&lt;=75) ＞ 68 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    八津さんの後に続き鬼塚さんも二良さんの元へ補助することができるでしょう。(一応)二良さんも逃走成功です。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    それでは、黒崎さんどうぞ。   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    CCB&lt;=90 【回避】 (1D100&lt;=90) ＞ 73 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    黒崎さんは九条さんの元へ逃走補助をすることが無事にできるでしょう。次九条さんどうぞ。   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=15*5 【DEX × 5】 (1D100&lt;=75) ＞ 90 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    +20の補助込みのため、九条さんも逃走成功です。これにより全員の逃走が完了しました。お疲れ様でした。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    神社の裏の森まで逃げると蔵を見つける<br>村人は自分たちを探しているようだがここに隠れればひとまずは凌げそうだ。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    蔵の中に入ると中は刀や包丁、狩猟用のライフルなどの武器が多く詰め込まれており、奥には(探索者の人数分の)バイクが入っています。<br>そして探索者達を見守るように包帯を巻いた白衣姿の人物(八津崎)が入ってきます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>八津崎睡蓮</dt><dd>    おレは八津崎睡蓮、いちおう医者だ   </dd></dl>
+<dl style="color:#888888" class="main"><dt>八津崎睡蓮</dt><dd>    まずはそこの眼鏡の男の治療をしないとナ   </dd></dl>
+<dl style="color:#888888" class="main"><dt>八津崎睡蓮</dt><dd>    1d3 (1D3) ＞ 2  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    (おまけ処理です。二良さんはHP2増やした後、復活してください。)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>八津崎睡蓮</dt><dd>    俺はお前さん達に危害を与える気は無い   </dd></dl>
+<dl style="color:#888888" class="main"><dt>八津崎睡蓮</dt><dd>    この村は危険だ、早く村の外に逃げてくれ。<br>この森の奥に魔除けを張っている、村の外につながっている場所だが、その魔除けで村人は出ることが出来ない。<br>そこまで来ればお前さん達は村の外に出ることが出来る。<br>そこまでこの蔵のバイクで走り抜けろ。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 二良 月火 ] HP : 12 → -15   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 二良 月火 ] HP : -15 → 2   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    【探索箇所】<br>武器、バイク、棚   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    の前に、九条さんのファンブル処理いきましょう   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    逃げ切ったことに安心したものの、先程見た異形達の光景に恐怖を覚えるでしょう。SAN値を1減らしてください。これをファンブル処理とします。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 九条 彩葉 (くじょう いろは) ] SAN : 79 → 78   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    それでは各々探索の方をどうぞ。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    あーらら、二良くん酷くやられちゃったね、お医者さんが処置ってくれたっぽいけどもうちょいみとく？(応急処置を試みます)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    どうぞ。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=60 【応急手当】 (1D100&lt;=60) ＞ 56 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    つづけて1d3を振ってください。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    1D3  (1D3) ＞ 1  </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 二良 月火 ] HP : 2 → 3   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    うん、お医者様に比べれば絆創膏程度だけど……まぁないよりマシ、だよね？   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    かっけぇバイクだ…俺一度はこういうの乗ってみたかったんだよな…(バイクを探索します)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    バイクは所々錆び付いた古いもののようです。まだまだ動きそうでもあります。<br>運転(バイク)を所持、またはINT×5orDEX×5に成功で操作方法を理解することが出来るでしょう。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    また、二人乗りをすることもできます。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    鬼塚さん、ありがとうございます。いやはや命大事にですね。…認知と行動のバグも早くに治るとよいのですが…    </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    二良さん！さっき逃げている最中、なにやらおかしなことを言ってましたけど、大丈夫ですか？<br>ほら、これを見て一度落ち着いてください(姉のアクキーを見せながら精神分析)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    どうぞ   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=31 【精神分析】 (1D100&lt;=31) ＞ 66 ＞ 失敗  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    あ、相変わらずおきれいな、おねえさんですね…？（目が酔ってしまった模様。）   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    (バイクを調べて操作方法理解できるかDEX×5振ります)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    黒崎さん、どうぞ   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    CCB&lt;=15*5 【DEX × 5】 (1D100&lt;=75) ＞ 26 ＞ 成功  </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    お礼なんていらないよ、てか放火したのはシラフでしょ？ちょっと位狂っといた方が正常によるんじゃない？   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    応急措置、私も少しならできますよ。<br>（応急手当を振ります）   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    ん〜…ん？これここをぐっとやりゃ乗れそうだな…(バイクをしげしげと眺め)   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=45 【応急手当】 (1D100&lt;=45) ＞ 22 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    1d3お願いします。   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    1d3 (1D3) ＞ 1  </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 二良 月火 ] HP : 3 → 4   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    ええ、気の狂った人たちを鎮めるにはあのくらいしないと通じませんからね。…（座間君のことを考えて閉口した様子。）九条さん、ありがとうございます。九条さんも手当の心得がおありなんですね。   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    なぁ、このバイク乗れそうだぞ？他に乗りたい奴いないか？(みんなに声掛け)   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    えぇ、私も仕事柄こういうこともやっていますので。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    九条さんも危険なお仕事をされているんですねえ…お体にはお気をつけて。とにかくこの村を出ないことには、ですが。バイクがあるなら好都合ですね。（見に行きます。えっこらえっこら）   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    あは……、貴方があんなまねしなければ座間は死ななくてすんだかもね？……兎にも角にも、処置したのも……補助したのも、座間がそうしろって言うと思ったからだよ(小声で告げれば立ち上がり背を向け探索の方へいきます)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    <br>バイクは所々錆び付いた古いもののようです。まだまだ動きそうでもあります。<br>運転(バイク)を所持、またはINT×5orDEX×5に成功で操作方法を理解することが出来るでしょう。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    また、二人乗りも可能です。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    おやおや…そう言われると顔向けできるものも、弁解も難しいですねえ。どうもありがとうございます、鬼塚さん。（言い言い、バイク操作理解を試みます。INT×5です）   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    どうぞ   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    座間…死んだのか？そういえば、見かけないと…   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    いや、感傷に浸るのは後か。僕にもそのバイク見せてくれ   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    (一人で棚の探索します)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    棚を探索する方は目星と図書館が振れます。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    (目星振ります！）   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    どうぞー   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=75 【目星】 (1D100&lt;=75) ＞ 6 ＞ スペシャル  </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    私も棚を確認したいです。<br>ここから脱出するまでにまたさっきの怪物みたいなのに遭遇しても嫌ですし。   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    （私も目星振ります）   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    鬼塚さんはモノクロの写真を見つけます。<br>7歳くらいの男の子が嬉しそうに双子の赤子を抱えてる写真で、男の子は腕に包帯を巻いています。<br>裏側には「れん と くおん」と書かれているものです。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    九条さん&gt;どうぞー   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=25 【目星】 (1D100&lt;=25) ＞ 84 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    (八津さん&gt;運転を試みる場合はINT×5かDEX×を振ってください)   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    (ではDEXの方で)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    どうぞー   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=18*5 【DEX × 5】 (1D100&lt;=90) ＞ 24 ＞ 成功  </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    おう、八津もバイク乗ってみろよ、操作できそうか？   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    （二良も試みます～）   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=14*5 【INT × 5】 (1D100&lt;=70) ＞ 14 ＞ スペシャル  </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    一応教習所でそれなりに聞いてたし…そうですね、たぶんできそうです   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    なんだ……？変な写真だな……(いったん手持ちにもっておきます)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    二良さんは前のスペシャル補正と合わせてなにかの技能を振る時+20の補正にしましょう。   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=27 【精神分析】 (1D100&lt;=27) ＞ 68 ＞ 失敗  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    …俺、調べるなら武器の方にしますよ。二人乗りできそうですからね   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    武器<br>様々な武器があります。主にあるのは刀や包丁、狩猟用のライフル。武器を探す場合は幸運に成功する必要があるでしょう。また、目星を振ることができます。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    ではまず何があるか確認しましょう。（目星を振ります）   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=60 【目星】 (1D100&lt;=60) ＞ 86 ＞ 失敗  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    ふうむ、これはよく見えますねえ。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    手榴弾をたくさん見つけました。ヤッタネ！好きなだけ持っていってください。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    では、たくさん持っていきましょう。ついでに油や導火線になるものなんかもないですかね。幸運なことって起きたりしませんかね？（幸運で探します）   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=65 【幸運】 (1D100&lt;=65) ＞ 32 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    二良さんは見つけることができませんでした。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    ふうむ…それはないようですね。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    また、先程目星でのスペシャル報酬として、鬼塚さんは次の資料を見つけます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    【村の掟】   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    ふむ……   </dd></dl>
+<dl style="color:#e0e0e0" class="main"><dt>【村の掟】</dt><dd>    また、呪文自体は記載されていない為習得は不可能ですが、以下の呪文の概要を知ることができるでしょう。<br>【呪文 似姿の利用】<br>   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    呪文 似姿の利用を知った鬼塚さんは後でクトゥルフ神話技能を+1してください。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    (OK)   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    ふーん、そういうことね……。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    （その裏でバイクに戻って操作再挑戦します。INT5+10です）   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    うーん…いつもの銃は持ってきてるけど、他になにかないかな？刀とかそういうの（幸運振ります）   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=80 【幸運】 (1D100&lt;=80) ＞ 84 ＞ 失敗  </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    (ちなバイクっていくつあるんです？）   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    バイクは人数分あります。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=14*5+10 【INT × 5】 (1D100&lt;=80) ＞ 14 ＞ スペシャル  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    刀はもともとあるので持って行って大丈夫です。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    …………。だめだ。何もわからない。    </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    (バイクも見にきます、DEX5振っても？）   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    二良、バイクの操作わからないなら、俺と一緒に乗るか？   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    鬼塚さん&gt;どうぞ   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=15*5 【DEX × 5】 (1D100&lt;=75) ＞ 23 ＞ 成功  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    ……それは…、皆さんで話し合ってから決めましょう。    </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    みなさん、護身用の武器とかお持ちですか？<br>刀と包丁、狩猟用のライフルがありました。   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    そういえば、さっき鬼塚さんが見てた棚、何かあったんでしょうか？…ちょっと聞けそうにない雰囲気だし、自分で見てみるか   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    八津さん、黒崎さん、鬼塚さんはバイクの運転の方法を理解することができるでしょう。   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    あと、私まだ見てなかったんですけどバイクもあるんですか？   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    俺は一応、カッターナイフなら持ってるけど…カツアゲ用に。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    棚は目星と図書館が振れます。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    （八津くんに並んで棚を調べます）   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=80 【目星】 (1D100&lt;=80) ＞ 16 ＞ スペシャル  </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=25 【図書館】 (1D100&lt;=25) ＞ 71 ＞ 失敗  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=60 【目星】 (1D100&lt;=60) ＞ 56 ＞ 成功  </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    （九条、バイク見に行きます。DEX*5振ってもいいですか？）   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    九条さん&gt;どうぞ   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=80 【図書館】 (1D100&lt;=80) ＞ 78 ＞ 成功  </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=15*5 【DEX × 5】 (1D100&lt;=75) ＞ 34 ＞ 成功  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    …ふむ…年季の入った棚だなあ！    </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    八津さんも鬼塚さん動揺、目星のスペシャル処理を図書館も成功したという処理にさせて頂きます。   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    （九条、続いて棚に対し「図書館」振れるなら振りたいです）   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    年季の入った白黒写真、村の掟、呪文を覚えることはできませんが似姿の利用の概要を知ることができるでしょう。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    図書館どうぞー   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=25 【図書館】 (1D100&lt;=25) ＞ 23 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    九条さんは村の掟の書類と呪文を覚えることはできませんが、似姿の利用についての概要を知ることができます。八津さんと九条さんは後でクトゥルフ神話技能を+1してください。   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    これは写真？と…うわ、姉さんが来る前に来ておいてよかった…なんだこの気色悪い、掟？   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    俺も使える武器、あるのか…？お、包丁あんじゃん…(武器を探索し包丁を手に持ち)   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    （ぼやぼやと写真を眺めていて、ふと顔をあげ、）…そういえば。みなさん、あちらに手榴弾が山ほどありましたよ。もしお使いになるならば持って行ってよいのではありませんか？…多分。   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    手榴弾、私も持って行っていいですか？<br>何かあった時に使えそうなので。   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    手榴弾、俺も一応持って行くか、非常事態とかありそうだからな…   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    えぇ〜？手榴弾？自分の身以外は使うのいやだなぁ……あ、ねぇねぇ二良くん。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    はい？なんでしょう、鬼塚さん。    </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    私の分も代わりに持ってよ、そしたらバイク後ろ乗せてあげるからさ、乗れないんでしょ？そう言う顔してるもん。   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    じゃあ、私は手榴弾とライフルを持って行きますね。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    ハハ…乗れない顔ですか。構いませんよ。よろしくお願いいたします。いまは“素面”ではないので、俺も俺の行動を保証できませんけどね。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    いーよ、その素面じゃない行動で、他の人に何かしたら大変だからね……どうせもう座間のいない世界だ、私も好き勝手やらせてもらうから、命を共にしようね？   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    (にこっ）   </dd></dl>
+<dl style="color:#888888" class="main"><dt>八津崎睡蓮</dt><dd>    お前さんタち、どうやら準備はできたみたいだな。結界が貼ってあるほうこうはあっちだ。そこにさえたどり着けば村の出口すぐそこだ。村のやつラが追いつく前に早く逃げロ。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    蔵から出ると村人達が追ってくる。<br>急いでバイクで脱出しなくてはなりません。<br><br>ここからの逃走ルールを説明します。<br>説明が長くなってしまうため、同じものを情報の方にも記載しますので、分からなくなったらそちらも見てください。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>逃走ルール</dt><dd>    ･3マス移動する必要がある<br>･村人達の現在地は探索者の現在地からさらに後ろに3マスである<br>･村人は毎ラウンド1d100人ずつ増えていく(これに関してはシークレットダイスで決めさせて頂きます。)<br>･村の外に逃走<br>･運転(バイク)orDEX×3に成功すると1マス移動できる<br>･手榴弾を村人に向かって投擲することで1d50人村人が爆ぜる<br>外れても森が焼けて火事になるので延焼ダメージで毎ラウンド1d6人死ぬ<br>･2人乗りは可<br>･追い付かれると村人全員でこぶし判定を振る、死ゾ<br>･村人は毎ラウンド1ずつ進む、シークレットダイス95%で判定し、ファンブルした場合は進まない<br>また、その場にいる村人を半分以上殺害した場合も進まない<br>･村人が全滅するか移動完了することで勝利となる   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    順番は先程とおなじ八津さん→鬼塚さん→九条さん→黒崎さん→二良さんでいきましょう。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    それでは最終盤面、逃走パートの開始です。まずシークレットダイスにて追っての人数を決めさせて頂きます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    s1d100 (1D100) ＞ 50  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    初ターンの村人の追っ手の人数が決まりました。八津さんからどうぞ。   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    バイクで移動します   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=18*3 【DEX × 3】 (1D100&lt;=54) ＞ 100 ＞ 致命的失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    八津さん1d7振ってください   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    1D7  (1D7) ＞ 7  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    では、お姉さんから貰ったピアスを片方落としてしまいます。これを処理とさせていただきます。   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    え   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    うわあああああああああああああああああああああああああああああああああああああああ   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    ね、ねえさ…姉さんからのピアスが！！！！！！！！！！！！   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    自主的にSAN値を減らします   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    どうぞ   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 八津　廻 ] SAN : 79 → 76   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    八津さんは大切なお姉様からの貰い物を落としてしまいます。このターン移動どころの話じゃな無くなってしまいました。次鬼塚さんどうぞ。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    八津！後ろ向こうとすな！二良ァ！手榴弾投げる準備しとけ！(DEXでにげます！)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    どうぞー   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=15*3 【DEX × 3】 (1D100&lt;=45) ＞ 50 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    バイクを動かすのにもたついてしまいます。次九条さんどうぞ。   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=15*3 【DEX × 3】 (1D100&lt;=45) ＞ 3 ＞ 決定的成功/スペシャル  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    では、九条さんは確定で2マス進めます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    次黒崎さんどうぞ   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 九条 彩葉 (くじょう いろは) ] 移動回数 : 0 → 2   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    これはバイクで逃げるしかねぇな…(バイクで逃走、DEXで振ります)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    どうぞ   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 二良 月火 (にら げっか) ] HP : 12 → 3   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 二良 月火 (にら げっか) ] SAN : 65 → 59   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 二良 月火 ] HP : 3 → 4   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    CCB&lt;=15*3 【DEX × 3】 (1D100&lt;=45) ＞ 65 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    慣れないバイクの運転にもたついてしまいます。次二良さんどうぞ。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    敵に手榴弾を投擲します。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    どうぞ   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    1D50  (1D50) ＞ 28  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=25 【投擲】 (1D100&lt;=25) ＞ 67 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    手榴弾で村人が28人爆散します。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    村人のターン。このターン村人達は動くことはありませんでした。手榴弾の攻撃により混乱してるようです。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    にターン目、追加人数いきます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    s1d100 (1D100) ＞ 7  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    人数追加できました。八津さんどうぞ。   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    っ、くっそ！(鬼塚さんに叱咤されて顔を歪めながらも前を向きます)   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=18*3 【DEX × 3】 (1D100&lt;=54) ＞ 32 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 八津　廻 ] 移動回数 : 0 → 1   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    八津さんはどうにか前に進むことができるでしょう。生きて早くお姉さんの元に帰らねばなりません。次鬼塚さんどうぞ。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    はは！二良ァ！やるじゃねぇか、その調子でもっと投げてやれ！(逃走しようと試みます)   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=15*3 【DEX × 3】 (1D100&lt;=45) ＞ 71 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    村人の様子を見ているのかもしれません。このターンも鬼塚さんは動きません。次九条さんどうぞ。   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=15*3 【DEX × 3】 (1D100&lt;=45) ＞ 89 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    後ろから聞こえる爆発音にバイクを止め振り返ってるかもしれません。次黒崎さんどうぞ。   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    （あともうちょっとで村の外なのに…！）   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    バイクうまく乗れねぇな…慣れないものは乗るもんじゃねーな。こいつでも投げてやるか…！(手榴弾投げます)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    どうぞ   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    CCB&lt;=55 【投擲】 (1D100&lt;=55) ＞ 80 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    1d6振ってください。   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    1D6  (1D6) ＞ 1  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    ど真ん中に命中することはありませんでしたが、その衝撃で1人の村人を減らすことが出来ました。次二良さんどうぞ。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    鬼塚さんばかりに任せていたら格好悪いですからね。仕事はしましょう。爆弾どーん。    </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=25 【投擲】 (1D100&lt;=25) ＞ 64 ＞ 失敗  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    1D50   (1D50) ＞ 41  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    眼鏡があっても今更なんにも見えませんから、同じですねえ？   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    手榴弾が村人の集団の中心に命中します。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    どうやら追っ手の村人は居なくなったようです。村人が全滅したので全員逃走成功となります。お疲れ様でした。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    これよりエンディングに入ります。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    火が上がる村を抜けていくと村の出口らしきものが見えてきました。<br>結界の横には星に目の書かれたマークが刻まれた岩が置かれています。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    出口を抜ければもうそこより先に村人はやって来ないでしょう。何故ならば追っ手の村人達は全滅したからです。<br>最後にそこから火薬をしこたま投げ込むことも出来ます。<br>   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    しばらく進めば街に出るでしょう。閉鎖的じゃない、ちゃんとした場所のようです。<br>……やっぱ閉鎖的な村ダメだわ！   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    もう不要ですね。燃えろ～よ燃えろ～（手榴弾を片端から村の境界内に投げ入れます）   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    CCB&lt;=80 【幸運】 (1D100&lt;=80) ＞ 97 ＞ 致命的失敗  </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    CCB&lt;=25 【目星】 (1D100&lt;=25) ＞ 80 ＞ 失敗  </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=50 【幸運】 (1D100&lt;=50) ＞ 59 ＞ 失敗  </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=75 【目星】 (1D100&lt;=75) ＞ 21 ＞ 成功  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    入るなら声かけてください！あぶない！投げちゃうところでした！    </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=65 【幸運】 (1D100&lt;=65) ＞ 6 ＞ スペシャル  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=60 【目星】 (1D100&lt;=60) ＞ 32 ＞ 成功  </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=80 【目星】 (1D100&lt;=80) ＞ 59 ＞ 成功  </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    CCB&lt;=80 【幸運】 (1D100&lt;=80) ＞ 17 ＞ 成功  </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=25 【目星】 (1D100&lt;=25) ＞ 80 ＞ 失敗  </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    CCB&lt;=80 【幸運】 (1D100&lt;=80) ＞ 14 ＞ スペシャル  </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    あれ…なんか転がってきましたよ？<br>これは…ピアス？   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    それ！！！！！！！   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    それ見せてもらえませんか？   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    はい。<br>これ、あなたの持ち物ですか？   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    1d100&lt;=49 【正気度ロール】 (1D100&lt;=49) ＞ 52 ＞ 失敗  </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    1D6  (1D6) ＞ 5  </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=65 【アイデア】 (1D100&lt;=65) ＞ 39 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    致命的失敗をした黒崎の自慢の髪の毛に、手榴弾によって散った火が髪に移り髪がチリチリになってしまいます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    鬼塚さんは発狂表から選ぶまたはランダムで一時的狂気を選んでください。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>     狂気表  花言葉 狂気表  花言葉(11) ＞ オシロイバナ「臆病」:逃走癖。この場からとにかく逃げ出したり物陰に隠れたり非常に憶病になる。自分の命を最優先に考える。この狂気中はDEX判定の値に∔20出来る。  </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    あ、ああ…そうです。みづげでぐだざり、あり、ありがどうございまず…っ(滝のように涙を流しながら頭を深く下げ)   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    っ！？<br>いいえ、とんでもないです…<br>そんなに大事なモノだったんですか？   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    は…？はぁー？！んだよこれ！火ついてる？！おい俺の髪に火ついてんだけど！(がぁん   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    はい…(ずびっ)<br>これは姉さんが僕の誕生日にサプライズで買ってきてくれて、姉も色違いのピアスを持っているので、この世に二つとない、僕の大事な大事な宝物なんです。<br>本当にありがとうございました。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    残りの手榴弾もぜ～んぶ、も～えろよも～えろ～。証拠もも～えろ～。…これで全てですかね？大丈夫かな。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=65 【幸運】 (1D100&lt;=65) ＞ 73 ＞ 失敗  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    大丈夫みたいだ。    </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    鬼塚さんにお礼を言わないと。…あれ？鬼塚さーん。おーい。    </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    よかった。<br>じゃあ、今度は無くさないように持って帰らないとですね。<br>お姉さんとこれからも仲良く過ごせるように祈ってます。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    二良さんが投げた手榴弾は全て森の中へと投擲されました。村長や神主諸共村が燃え尽きて、村が地図から消えるのも時間の問題でしょう。黒崎さんは…まぁ、ドンマイということで。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    (座間の死をしっかりと認識し、その上戻って骨も拾ってやれない事実から発狂し、座間の幻覚でも見てるのかその場から走り出す)座間ー！私を置いて死ぬなよー！まってくれー！一人は嫌だー！   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    (ドンマイって…)   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    九条さん…貴女、とってもいい人ですね。<br>僕も貴女のこの先の幸運を祈ります。   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    さて、私もいらないものは捨てて帰りますね。<br>（村で拾った武器類を火の中へ投げ捨て）   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    あれ、いらないんですか？   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    とんでもないです。<br>八津さんもお姉さん思いの良いお方ですよ。   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    航太ァー！(あっという間に見えない程度に逃げてしまうでしょう)(フェードアウト）   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    ちょ、鬼塚さん！鬼塚さん！？    </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    もったいねーな、俺がもらって質屋で売ってやろうか(ふっ   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    (村の外はちゃんと日本の憲法が通用するので、九条さん以外の人は銃刀法違反で捕まります。)   </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    あと武器は、自分のがあるので。<br>地図から消えた村にあった武器を持ってて、変な疑いをかけられるのも嫌ですから。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    （一か八か鬼塚さんに追いついて精神分析をかけられるかDEXいけますか？）    </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    そっか…つまんねーの。やっぱ俺の武器はカッターナイフかな…(カチカチとカッターの刃を出し入れし)   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    鬼塚さんと二良さん両者DEX×5振って二良さんの数字が大きかったら追いついたことにしましょう   </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=15*5 【DEX × 5】 (1D100&lt;=75) ＞ 28 ＞ 成功  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    これが終わったら成功報酬等の諸々の処理に入ります。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=9*5 【DEX × 5】 (1D100&lt;=45) ＞ 47 ＞ 失敗  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    鬼塚さんに追いつきました。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    鬼塚さん、お気を確かに。後で火が静かになったら、浜辺に行ってみましょう。…ほぼ俺のせい…なんですけど。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    …座間ならこういう時、俺たちを見捨てず付き合ってくれたはずですからね。    </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    （そのまま座間の話題と助けてもらった恩をさりげに混ぜつつ精神分析に挑みます。）   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    どうぞ   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=61 【精神分析】 (1D100&lt;=61) ＞ 3 ＞ 決定的成功/スペシャル  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    二良さんも髪の毛がちりちりになりました。   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    ……………………。…………    </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    あっははは、バカだな！彼を奇跡的に見つけられたとして……もっていって……君がやったこと、追及されたらどうすんの？お前も来いよ！他の連中は酒とか飲めなさそうだし！一緒に逃げるんだよ！(二良君の襟首掴んで一緒に逃げます)(さよなら〜)   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    …あれ？眼鏡の頭、燃えてないか？   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    （……そのくらいなら付き合いますよ、と言いつつ鬼塚さんに従い消えます）    </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    今回の件がきっかけで連絡を取り合う探索もいるかもしれないしいないかもしれません。なにがともあれ、全員生還おめでとうございます。<br>これにてクトゥルフ神話TRPG「村人八分人力TAS」終了になります。<br>お疲れ様でした。<br><br>特殊エンド…？ではあるきもしますが、ハッピーエンド？です。<br><br>成功報酬 SAN値回復 1d10   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    1d10を振ってSAN値の回復をお願いします。続いて技能の成長いきますね   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    1D10  (1D10) ＞ 5  </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    1D10  (1D10) ＞ 1  </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    1D10  (1D10) ＞ 10  </dd></dl>
+<dl style="color:#4caf50" class="main"><dt>九条 彩葉 (くじょう いろは)</dt><dd>    1D10  (1D10) ＞ 6  </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 八津　廻 ] SAN : 76 → 77   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 二良 月火 ] SAN : 59 → 64   </dd></dl>
+<dl style="color:#f44336" class="main"><dt>黒崎　凛 (くろさき　りん)</dt><dd>    1D10  (1D10) ＞ 5  </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 二良 月火 ] SAN : 64 → 63   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 黒崎　凛 (くろさき　りん) ] SAN : 79 → 80   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 二良 月火 ] SAN : 63 → 64   </dd></dl>
+<dl style="color:#e0e0e0" class="main"><dt>シナリオ背景</dt><dd>    また、遭遇した〜の欄には「深きもの(深きものども)」と記載をお願いします。   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 鬼塚 凛火 (おにづか　りんか) ] SAN : 49 → 50   </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    八津さん 目星×3<br>二良さん 目星 オカルト 聞き耳 心理学<br>九条さん 目星 応急処置 図書館<br>黒崎さん 目星<br>鬼塚さん 目星×3 応急処置   </dd></dl>
+<dl style="color:#888888" class="main"><dt>system</dt><dd>    [ 九条 彩葉 (くじょう いろは) ] SAN : 78 → 80   </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    5D100&lt;=80  (5D100&lt;=80) ＞ 219[30,82,31,6,70] ＞ 219 ＞ 失敗  </dd></dl>
+<dl style="color:#795548" class="main"><dt>八津　廻</dt><dd>    1D10  (1D10) ＞ 3  </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    5D100  (5D100) ＞ 128[56,25,10,18,19] ＞ 128  </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    CCB&lt;=60 【応急手当】 (1D100&lt;=60) ＞ 61 ＞ 失敗  </dd></dl>
+<dl style="color:#ff5722" class="main"><dt>鬼塚 凛火 (おにづか　りんか)</dt><dd>    1D10  (1D10) ＞ 5  </dd></dl>
+<dl style="color:#888888" class="main"><dt>KP </dt><dd>    各々該当する成功箇所があった場合はキャラシの方への成長の方の反映をお願いします〜   </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=53 【回避】 (1D100&lt;=53) ＞ 94 ＞ 失敗  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    1D10  (1D10) ＞ 5  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=61 【精神分析】 (1D100&lt;=61) ＞ 91 ＞ 失敗  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    1D10  (1D10) ＞ 2  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=80 【オカルト】 (1D100&lt;=80) ＞ 77 ＞ 成功  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=60*3 【目星】←意味不明で草　ふつうにふります (1D100&lt;=180) ＞ 79 ＞ 成功  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=60 【目星】 (1D100&lt;=60) ＞ 95 ＞ 失敗  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=60 【目星】 (1D100&lt;=60) ＞ 20 ＞ 成功  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=60 【目星】 (1D100&lt;=60) ＞ 25 ＞ 成功  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    1D10  (1D10) ＞ 5  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=80 【聞き耳】 (1D100&lt;=80) ＞ 49 ＞ 成功  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=80 【図書館】 (1D100&lt;=80) ＞ 35 ＞ 成功  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    CCB&lt;=65 【心理学】 (1D100&lt;=65) ＞ 80 ＞ 失敗  </dd></dl>
+<dl style="color:#e91e63" class="main"><dt>二良 月火</dt><dd>    1D10  (1D10) ＞ 1  </dd></dl>
+
+</div>
+<footer></footer>
+
+<script>
+const Hide = (checkbox) => {
+  const elmntTarget = document.getElementsByClassName(checkbox.id)
+  for (let intCount = 0; intCount < elmntTarget.length; intCount++) {
+    const message = elmntTarget[intCount]
+    const contexts = message.className.split(' ')
+    let elmntChecked = checkbox.checked
+    contexts.forEach((context) => {
+      const contextCheckbox = document.getElementById(context)
+      if (contextCheckbox) {
+        elmntChecked &= contextCheckbox.checked
+      }
+    })
+    message.style.display = elmntChecked ? 'none' : ''
+  }
+}
+</script>
+</body>
+</html>
